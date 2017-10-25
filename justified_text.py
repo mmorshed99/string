@@ -39,8 +39,11 @@ def get_justified_line(A,n):
         total_char += len(curr)
     spaces = n - total_char
     gaps = gaps -1 
-    equal_spaces = spaces // gaps
-    extra_spaces = spaces % gaps
+    equal_spaces = spaces
+    extra_spaces = 0
+    if gaps >0:
+      equal_spaces = spaces // gaps
+      extra_spaces = spaces % gaps
     space_buffer = []
     for i in range(0,gaps):
         if extra_spaces > 0:
@@ -57,11 +60,14 @@ def get_justified_line(A,n):
            return_list.append(" ")
     return return_list
 A = ["This", "is", "an", "example", "of", "text", "justification."]
-raw_lines = get_raw_lines(A,16)
+A = [ "am", "fasgoprn", "lvqsrjylg", "rzuslwan", "xlaui", "tnzegzuzn", "kuiwdc", "fofjkkkm", "ssqjig", "tcmejefj", "uixgzm", "lyuxeaxsg", "iqiyip", "msv", "uurcazjc", "earsrvrq", "qlq", "lxrtzkjpg", "jkxymjus", "mvornwza", "zty", "q", "nsecqphjy" ]
+A = [ "What", "must", "be", "shall", "be." ]
+raw_lines = get_raw_lines(A,12)
 processed_lines = [] 
 for i in range(0,len(raw_lines)-1):
-    processed_lines.append(get_justified_line(raw_lines[i],16))
+    processed_lines.append(get_justified_line(raw_lines[i],12))
 processed_lines.append(raw_lines[len(raw_lines)-1])
+print(processed_lines)
 final_result = []
 for i in range(0,len(processed_lines)):
     final_result.append(''.join(str(e) for e in processed_lines[i]))
