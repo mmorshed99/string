@@ -1,3 +1,4 @@
+# From Hashing.
 #Given an array of strings, return all groups of strings that are anagrams. 
 #Represent a group by a list of integers representing the index in the original list. Look at the sample case for clarification.
 #Input : cat dog god tca
