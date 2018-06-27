@@ -39,3 +39,31 @@ class Solution:
                 else:
                     return -1
      return find_strstr(A,B) 
+
+###### Alternate####
+class Solution:
+    # @param A : string
+    # @param B : string
+    # @return an integer
+    def strStr(self, A, B):
+        if len(A) == 0 or len(B) == 0:
+            return -1
+        if len(B) > len(A):
+            return -1
+        curr_m_id = 0
+        curr_s_id = 0
+        while(True):
+            if A[curr_m_id] == B[curr_s_id]:
+                if curr_s_id == len(B) -1:
+                    return curr_m_id - len(B) + 1
+                if curr_m_id != len(A) - 1:
+                    curr_m_id += 1
+                    curr_s_id += 1
+                    continue
+                else:
+                    return -1
+            else:
+                if curr_m_id == len(A) - 1:
+                    return -1
+                curr_m_id = curr_m_id - curr_s_id + 1
+                curr_s_id = 0
